@@ -1,0 +1,67 @@
+stack 1
+E
+D
+C
+B
+A
+stack 2
+E
+D
+C
+B
+A
+
+Attempt to add to a full stack 1
+*** Stack is full -- can't add new value ***
+Must Increase value of STACK_CAPACITY in Stack.h
+Pop off of stack 2 add one to stack 1
+F
+E
+D
+C
+B
+A
+
+D
+C
+B
+A
+Attempt to add to a full stack 2
+*** Stack is full -- can't add new value ***
+Must Increase value of STACK_CAPACITY in Stack.h
+
+Getting top of stack1 using member function
+F
+Getting top of stack2 using non-member function
+D
+Replacing C with R in stack 2 using member function
+D
+R
+B
+A
+Replacing B with W in stack 1 using non-member fuction
+F
+E
+D
+R
+W
+A
+test stack to compare with
+F
+E
+D
+R
+W
+A
+
+D
+R
+W
+A
+testing member identical and non-member with 2 stacks that are the same
+1
+1
+testing member identical and non-member with 2 stacks that are different
+0
+0
+
