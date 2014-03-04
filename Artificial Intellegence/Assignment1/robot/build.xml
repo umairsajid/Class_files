@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<project name="a1" default="compile" basedir=".">
+
+  <target name="compile">
+      <javac srcdir="${basedir}" 
+             includes="*.java"
+	     classpath="XtangoAnimation.jar:${basedir}"
+	     fork="true"/>
+  </target>
+
+  <target name="run" depends="compile">
+    <exec executable="java">
+      <arg value="-cp"/>
+      <arg value="XtangoAnimation.jar:${basedir}"/>
+      <arg value="Simulation"/>
+      <arg line ="${A}"/>
+    </exec>
+  </target>
+  
+
+  <target name="test">
+    <echo message="Layout=${L} (${S}/${R})"/>
+    <exec executable="java">
+      <arg value="-cp"/>
+      <arg value="XtangoAnimation.jar:${basedir}"/>
+      <arg value="Simulation"/>
+      <arg value ="${L}"/>  <!-- name of layout file -->
+      <arg value ="n"/>     <!-- graphics mode       -->
+      <arg value ="${S}"/>  <!-- number of steps     -->
+      <arg value ="${R}"/>  <!-- number of runs      -->
+    </exec>
+  </target>
+
+  <target name="tests" depends="compile">
+    <antcall target="test">
+      <param name="L" value="L1"/>
+      <param name="S" value="100"/>
+      <param name="R" value="100"/>
+    </antcall>
+    <antcall target="test">
+      <param name="L" value="L2"/>
+      <param name="S" value="400"/>
+      <param name="R" value="100"/>
+    </antcall>
+    <antcall target="test">
+      <param name="L" value="L3"/>
+      <param name="S" value="500"/>
+      <param name="R" value="100"/>
+    </antcall>
+    <antcall target="test">
+      <param name="L" value="L4"/>
+      <param name="S" value="500"/>
+      <param name="R" value="1000"/>
+    </antcall>
+    <antcall target="test">
+      <param name="L" value="L5"/>
+      <param name="S" value="1000"/>
+      <param name="R" value="1000"/>
+    </antcall>
+
+  </target>
+
+  <target name="javadoc" depends="clean-doc">
+    <javadoc 
+       classpath="XtangoAnimation.jar:${basedir}"
+       destdir="html"
+       use="true"
+       splitIndex="true"
+       windowtitle="CS300 Assignment 1 API"
+       doctitle="CS300 Assignment 1 API"
+       maxmemory="180m">
+      <fileset dir="." includes="*.java" />
+    </javadoc>
+  </target>
+
+  <target name="clean">
+    <echo>Removing all class and temporary files</echo>
+    <delete> 
+      <fileset dir="." defaultexcludes="no">
+        <include name="**/*.class" />
+        <include name="**/*~"/>
+      </fileset>
+    </delete>
+  </target>
+
+  <target name="clean-doc">
+    <delete dir="html"/>
+  </target>
+
+</project>
