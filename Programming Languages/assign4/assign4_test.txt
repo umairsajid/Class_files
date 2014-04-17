@@ -1,0 +1,2 @@
+require('util').puts(require('util').inspect(assign4.parse("a=b=x+(2^z) ^y^d%3"), false, 10,true))
+require('util').puts(require('util').inspect(assign4.parse("a=b+10=c%13"), false, 10,true))

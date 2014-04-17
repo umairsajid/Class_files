@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+
+\usepackage[english]{babel}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+%Gummi|065|=)
+\title{\textbf{Assignment 4}}
+\author{Sterling Kohel}
+\date{\today}
+\begin{document}
+\raggedright
+\maketitle
+
+\section{Give a BNF grammar for the set of all strings consisting of the keyword begin, followed by one or more statements with
+a semi-colon after each statement, followed by the keyword end. Use the non-terminal $<statement>$ for a statement
+and do not give a production for it.}
+
+\begin{center} 
+\fbox{\begin{minipage}{6in} 
+$<string>$	\hspace{2.2em}:== \hspace{2em} begin ; $<phrase> $
+
+$<phrase>$ \hspace{1.95em}:== \hspace{2.3em}$<statement>$ ; $<phrase> |$  end
+
+\vspace{1em}
+
+\end{minipage}} 
+\end{center}
+
+
+\section{Repeat Problem 1 except now use EBNF extensions wherever possible to simplify the grammar.}
+
+
+\begin{center} 
+\fbox{\begin{minipage}{6in} 
+$<string>$	\hspace{2.2em}:== \hspace{2em} begin ; $ <statement>?$   
+
+$<phrase>$ \hspace{1.95em}:== \hspace{2.3em}$<statement>*$ $|$ end?
+\end{minipage}} 
+\end{center}
+
+\section{Write a BNF grammar that can generate all strings in the language $a^{n}c^{k}b^{m}$ where $n > m \geq 1$  and $k = 0,1, or 2$. In
+other words, there are more a'’s than b'’s. There is at least 1 b. The a'’s and b'’s may be separated by nothing, 1 c or 2
+c'’s. Hint: In the review problems you'’ve seen a grammar for a language whose “sentences” are a string of a's followed
+by an equal number of b's. Think about how to extend that grammar to satisfy the specifications of this problem.}
+\begin{center} 
+\fbox{\begin{minipage}{6in}
+$<expression>$ \hspace{2.2em}:== \hspace{2em} aa $<expression>$ b  $|$ aaa$<expression>bb$
+
+\hspace{14em}$|$ a $<expression>$ $|$ $<term>$
+
+$<term>$ \hspace{4.9em}:== \hspace{2em} c $|$ cc $|$ $<empty>$
+\end{minipage}} 
+\end{center}
+
+
+\section{Repeat Problem 3, but now use EBNF extensions to make your grammar as concise as possible.}
+
+\begin{center} 
+\fbox{\begin{minipage}{6in}
+$<expression>$ \hspace{2.2em}:== \hspace{2em} (aa $<expression>$ b)*  $|$ aaa$<expression>bb$* 
+
+\hspace{14em}$|$ a$<expression>*$ $|$ $<term>$?
+
+$<term>$ \hspace{4.5em} :== \hspace{2.5em}c? $|$ cc?
+\end{minipage}} 
+\end{center}
+
+\end{document}
