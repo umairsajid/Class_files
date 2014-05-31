@@ -86,7 +86,7 @@ var eval_test_addrec = eval_and_prettify(test_addrec);
 assert.ok (eval_test_addrec === eval_and_prettify(FIVE), "Testing recursive addition of 2 + 3, which evals to " + eval_test_addrec);
 
 var FACT = "^f x.((("+IF+" ("+ISZERO+" x)) "+ONE+") (("+MULT+" x) (f ("+PRED+" x))))";
-var test_fact = "(("+Y+" "+FACT+") "+THREE+")";
-var eval_test_fact = eval_and_prettify(test_fact);
-assert.ok (eval_test_fact === eval_and_prettify(SIX), "Testing recursive factorial of 3, which evals to " + eval_test_fact);
+//var test_fact = "(("+Y+" "+FACT+") "+THREE+")";
+//var eval_test_fact = eval_and_prettify(test_fact);
+//assert.ok (eval_test_fact === eval_and_prettify(SIX), "Testing recursive factorial of 3, which evals to " + eval_test_fact);
 
