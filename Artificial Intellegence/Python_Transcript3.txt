@@ -1,0 +1,66 @@
+>>> import nltk,re,os,random,pickle
+>>> infile = open("spam1.txt")
+>>> raw=infile.read()
+>>> tokens=re.split(r'\W+',raw)
+>>> len(tokens)
+>>> tokens[:100]
+
+>>> stopwords = nltk.corpus.stopwords.words('english')
+>>> stopwords[:20]
+>>> content=[w.lower() for w in tokens if w.lower() not in stopwords]
+>>> len(content)
+>>> content[:100]
+
+>>> en_words=nltk.corpus.words.words('en')
+>>> en_words[:20]
+>>> content2 = [w for w in content if w in en_words]
+>>> content2[:100]
+>>> len(content2)
+
+>>> fdist=nltk.FreqDist(content2)
+>>> fdist.items()
+
+----------------------------------
+>>> from nltk.corpus import movie_reviews
+>>> movie_reviews.categories()
+>>> len(movie_reviews.fileids())
+>>> movie_reviews.fileids()[:10]
+>>> movie_reviews.fileids(['pos'])[:10]
+
+>>> raw=movie_reviews.raw(fileids='pos/cv001_18431.txt')
+>>> raw
+
+
+>>> docs = [(list(movie_reviews.words(fileid)),category) for category in movie_reviews.categories()
+for fileid in movie_reviews.fileids(category)]
+>>> random.shuffle(docs)
+
+>>> words = [w.lower() for w in movie_reviews.words()]
+>>> len(words)
+>>> all_words=nltk.FreqDist(words)
+>>> word_features=all_words.keys()[:2000]
+
+>>> def doc_features(document):
+...     doc_words=set(document)
+...     features={}
+...     for word in word_features:
+...             features['contains(%s)' % word]=(word in doc_words)
+...     return features
+
+>>> dict = doc_features(movie_reviews.words('pos/cv001_18431.txt'))
+>>> len(dict)
+>>> dict.items()[:20]
+
+>>> featuresets = [(doc_features(d),c) for (d,c) in docs]
+>>> len(featuresets)
+
+>>> train_set = featuresets[100:]
+>>> test_set = featuresets[:100]
+
+>>> classifier = nltk.NaiveBayesClassifier.train(train_set)
+>>> print nltk.classify.accuracy(classifier, test_set)
+
+>>> classifier.show_most_informative_features(10)
+
+
+
