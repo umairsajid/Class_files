@@ -1,0 +1,19 @@
+/**
+ * Full adder: Computes sum, the least significant bit of 
+ * a + b + c, and carry, the most significant bit of a + b + c
+ */
+CHIP FullAdder {
+
+    IN  a, b,    // the two bits to be added
+        c;       // the carry-in bit
+    OUT sum,     // LSB of a + b + c
+        carry;   // MSB of a + b + c (the carry-out bit)
+
+    PARTS:
+    And(a=a, b=b, out=and1);
+    Xor(a=a, b=b, out=xor1);
+    And(a=xor1, b=c, out=and2);
+    Xor(a=xor1, b=c, out=sum);
+    Or(a=and1, b=and2, out=carry);
+}
+

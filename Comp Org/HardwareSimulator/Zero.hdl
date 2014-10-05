@@ -1,0 +1,13 @@
+/**
+ *  Zero gate:  0
+ */
+
+CHIP Zero {
+
+    IN  in;
+    OUT out;
+
+    PARTS:
+    Not(in=in, out=out1);
+    And(a=in, b=out1, out=out);
+}

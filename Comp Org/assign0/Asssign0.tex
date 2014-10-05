@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in,footskip=0.25in]{geometry}
+\usepackage{amsmath}
+\usepackage{ amssymb }
+%Gummi|065|=)
+\title{\textbf{Assignment 0}}
+\author{Sterling Kohel}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+
+\section{What is the  32-bit complement  representation of the number -10117?}
+
+\hspace{2ex} $10117_{10}$  = $0000 0000 0000 0000 0010 0111 1000 0101_{2}$
+
+flip bit  = $1111 1111 1111 1111 1101 1000 0111 1010_{2}$
+
+\hspace{1.3ex}add 1 = $1111 1111 1111 1111 1101 1000 0111 1011_{2}$
+
+\section{Prove the following statement:  Assume x and y are positive integers.  If the digits of y are the digits of x, but just rearranged, then (x - y) mod 9 = 0.}
+
+\hspace{3.2ex}Let C = some constant.
+
+x - C = multiple of 9
+
+Since y contains the same digits as x, y - C = multiple of 9.
+
+(x - C - (y - C)) mod 9 = 0
+
+(x - C - y + C) mod 9 = 0
+
+(x - y) mod 9 = 0 $\square$
+
+\section{Is the converse of the previous statement, which you just proved, true?  If so, prove it.  If not, provide a concrete counterexample.  In either case you must clearly state what the converse actually is.}
+
+The converse of 2 is:
+
+ if (x - y) mod 9 = 0 then the digits of y are the digits of x, but just rearranged 
+ 
+ Counterexample:
+ 
+ x = 45
+ 
+ y = 9
+ 
+ (45 - 9) mod 9 = 0 
+ however 9 is not a rearrangment of 45.
+
+\end{document}

@@ -1,0 +1,32 @@
+/**
+ * 16-way 16-bit multiplexer:
+ * out = a if sel==0000
+ *       b if sel==0001
+ *       c if sel==0010
+ *       d if sel==0011
+ *       e if sel==0100
+ *       f if sel==0101
+ *       g if sel==0110
+ *       h if sel==0111 
+ *       i if sel==1000
+ *       j if sel==1001
+ *       k if sel==1010
+ *       l if sel==1011
+ *       m if sel==1100
+ *       n if sel==1101
+ *       o if sel==1110
+ *       p if sel==1111
+ */
+CHIP Mux16Way16 {
+    IN a[16], b[16], c[16], d[16],
+       e[16], f[16], g[16], h[16],
+       i[16], j[16], k[16], l[16],
+       m[16], n[16], o[16], p[16],
+       sel[4];
+    OUT out[16];
+
+    PARTS:
+    Mux8Way16(a=a ,b=b ,c=c , d=d , e=e , f=f, g=g , h=h , sel=sel[0..2] , out=mux0Out);
+    Mux8Way16(a=i ,b=j ,c=k , d=l , e=m , f=n, g=o , h=p , sel=sel[0..2] , out=mux1Out);
+    Mux16(a=mux0Out , b=mux1Out, sel=sel[3], out=out);
+}
