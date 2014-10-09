@@ -1,0 +1,13 @@
+.jumbotron, .nav-pills>li.active>a{
+	background-color: #00878F;
+	
+}
+.nav-pills>li.active>a:hover{
+	background-color: #E47128;
+}
+.jumbotron {
+	margin-top: 50px;
+}
+h1 = {
+	text-align: center;
+}
