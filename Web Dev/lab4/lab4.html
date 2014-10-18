@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Lab 4</title>
+    <link href="lab4.css" rel="stylesheet">   
+</head>
+<body>	
+	<form name="labform" method="post" action="lab4.php">
+		
+		<p>
+			<label>Name</label><br>
+			<input name="name"><br>
+			
+		</p>
+		<textarea rows="4" cols="50 "name="box"></textarea>
+		<p>
+			<label>Font Color</label><br>
+			<label><input type="checkbox" name="blue" value="blue">blue</label>
+			<label><input type="checkbox" name="red" value="red">red</label>
+			<label><input type="checkbox" name="green" value="green">green</label>
+		</p>
+		<p>
+			<label>Font Size</label><br>
+			<label><input type="radio" name="size" value="10">10</label>
+			<label><input type="radio" name="size" value="12" checked>12</label>
+			<label><input type="radio" name="size" value="20">20</label>
+			<label><input type="radio" name="size" value="24">24</label>
+		</p>		
+			
+		<p>
+			<label>Favorite Class</label><br>
+			<select name="class">
+				<option value="Algorithms">Algorithms</option>
+				<option value="PL">PL</option>
+				<option value="AI">AI</option>
+			</select>
+		</p>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>

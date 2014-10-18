@@ -1,0 +1,26 @@
+.fire, .danger{
+	color: red;
+}
+
+.danger{
+	font-size: 24px;
+}
+.sky{
+	color: blue;
+}
+.forest{
+	color: green;
+}
+
+.small{
+	font-size: 10px;
+}
+.medium{
+	font-size: 12px;
+}
+.large{
+	font-size: 20px;
+}
+.x-large{
+	font-size: 24px;
+}

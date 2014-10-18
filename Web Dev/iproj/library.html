@@ -1,0 +1,468 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Programming</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="css/custom.css" rel="stylesheet">    
+</head>
+<body>
+	<div class="container">
+    <div class="row">
+  		<ul class="nav nav-pills">
+  			<li class=""><a href="index.html">Home</a></li>
+        <li class=""><a href="started.html">Getting Started</a></li>
+        <li class="active"><a href="library.html">Library</a></li>
+        <li class=""><a href="links.html">Links</a></li>
+      </ul>
+    </div>  
+    <div class="row">
+      <div class="col-md-4 col-sm-6">  
+        <h2 class="column-heading">Structure</h2>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Control Structures</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li><a href="#" data-target="#ifs" data-toggle="modal">if</a></li>
+                <li>if..else</li>
+                <li>for</li>
+                <li>switch case</li>
+                <li>while</li>
+                <li>do..while</li>
+                <li>break</li>
+                <li>continue</li>
+                <li>return</li>
+                <li>goto</li>
+              </ul>
+            </h5>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Syntax</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>; (semicolon)</li>
+                <li>{} (curly braces)</li>
+                <li>// (single line comment</li>
+                <li>/**/ (multi-line comment</li>
+                <li>do..while</li>
+                <li>#define</li>
+                <li>#include</li>
+              </ul>
+            </h5>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Arithmetic Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>= (assignment operator)</li>
+                <li>+ (addition)</li>
+                <li>- (subtraction)</li>
+                <li>* (multiplication)</li>
+                <li>/ (division)</li>
+                <li>% (modulo)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div> 
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Comparison Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>== (equal to)</li>
+                <li>!= (not equal to)</li>
+                <li>< (less than)</li>
+                <li>> (greater than)</li>
+                <li><= (less than or equal to)</li>
+                <li>>= (greater than or equal to)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>  
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Boolean Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>&& (and)</li>
+                <li>|| (or)</li>
+                <li>! (not)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Pointer Access Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>* (dereference operator)</li>
+                <li>& (reference operator)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Bitwise Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>& (bitwise and)</li>
+                <li>| (bitwise or)</li>
+                <li>^ (bitwise xor)</li>
+                <li>~ (bitwise not)</li>
+                <li><< (bitwise left)</li>
+                <li>>> (bitwise right)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div> 
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Compound Operators</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>++ (increment)</li>
+                <li>-- (decrement)</li>
+                <li>+= (compound addition)</li>
+                <li>-= (compound subtraction)</li>
+                <li>*= (compound multiplication)</li>
+                <li>/= (compound division)</li>
+                <li>&= (compound bitwise and)</li>
+                <li>|= (compound bitwise or)</li>
+              </ul>
+            </h5>
+          </div>        
+        </div> 
+      </div>
+      <div class="col-md-4 col-sm-6">
+        <h2 class="column-heading">Variables</h2>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Constants</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li><a href="#" data-target="#constants" data-toggle="modal">HIGH/LOW</a></li>
+                <li>INPUT/OUTPUT/INPUT_PULLUP</li>
+                <li>LED_BUILDIN</li>
+                <li>true/false</li>
+                <li>integer constants</li>
+                <li>floating point constants</li>
+              </ul>
+            </h5>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Data Types</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>void</li>
+                <li>boolean</li>
+                <li>char</li>
+                <li>unsigned char</li>
+                <li>byte</li>
+                <li>int</li>
+                <li>unsigned int</li>
+                <li>word</li>
+                <li>long</li>
+                <li>unsigned long</li>
+                <li>short</li>
+                <li>float</li>
+                <li>double</li>
+                <li>string (char arry)</li>
+                <li>String (object)</li>
+                <li>array</li>
+              </ul>
+            </h5>
+          </div>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Conversion</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>char()</li>
+                <li>byte()</li>
+                <li>int()</li>
+                <li>word()</li>
+                <li>long()</li>
+                <li>float()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Variable Scope & Qualifiers</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>variable scope</li>
+                <li>static</li>
+                <li>volatile</li>
+                <li>const</li>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Utilities</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>sizeof()</li>
+          </div>        
+        </div>  
+      </div>  
+      <div class="col-md-4 col-sm-6">
+        <h2 class="column-heading">Functions</h2>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Digital I/O</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>pinMode()</li>
+                <li>digitalWrite()</li>
+                <li>digitalRead()</li>            
+              </ul>
+            </h5>
+          </div>
+        </div>         
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Analog I/O</h3>
+          </div>
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>analogReference()</li>
+                <li>analogRead()</li>
+                <li>analogWrite()</li>            
+              </ul>
+            </h5>
+          </div>
+        </div> 
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Advanced I/O</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>tone()</li>
+                <li>noTone()</li>
+                <li>shiftOut</li>
+                <li>shiftIn</li>
+                <li>pulseIn</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Time</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>millis()</li>
+                <li>micros()</li>
+                <li>delay()</li>
+                <li>delayMicroseconds</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Math</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>min()</li>
+                <li>max()</li>
+                <li>abs()</li>
+                <li>constrain()</li>
+                <li>map()</li>
+                <li>pow()</li>
+                <li>sqrt()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Trigonometry</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>sin()</li>
+                <li>cos()</li>
+                <li>tan()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Random Numbers</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>randomSeed()</li>
+                <li>random()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Bits and Bytes</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>lowByte()</li>
+                <li>highByte()</li>
+                <li>bitRead()</li>
+                <li>bitWrite()</li>
+                <li>bitSet()</li>
+                <li>bitClear()</li>
+                <li>bit()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">External Interrupts</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>attachInterrupt()</li>
+                <li>detachinterrupt()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Interrupts</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>interrupts()</li>
+                <li>nointerrupts()</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Communication</h3>
+          </div>        
+          <div class="panel-body">
+            <h5>
+              <ul>
+                <li>Serial</li>
+                <li>Stream</li>
+              </ul>
+            </h5>
+          </div>        
+        </div>
+      </div>
+    </div>
+	</div>
+
+            <!-- if modal -->
+  <div class="modal fade" id="ifs" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="push">
+            <p class="definition">A conditional statement that uses comparison operators to test logic</p>
+            <p>int buttonPin = 7;
+            <span class="indent"><br>int ledPin = 13;</span>
+            <span class="indent"><br>int val = 0;</span>
+            </p>
+            <p>void setup(){
+            <span class="indent2x"><br>pinMode(buttonPin, INPUT);</span>
+            <span class="indent2x"><br>pinMode(ledPin, OUTPUT);</span>
+            <span class="indent"><br>}</span>
+            <p>void loop(){
+            <span class="indent2x"><br>val = digitalRead(buttonPin);</span>
+            <span class="indent2x"><br>if (val == HIGH){</span>
+            <span class="indent4x"><br>ledPin = HIGH;</span>
+            <span class="indent2x"><br>}</span>
+            <span class="indent"><br>}</span></p>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+             <!-- blank modal -->
+  <div class="modal fade" id="ifs" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h5 class="push">
+            <p class="definition">definition</p>
+            <p>variable
+            <span class="indent"><br>variable</span>
+            </p>
+            <p>void setup(){
+            <span class="indent2x"><br>assignment</span>
+            <span class="indent"><br>}</span>
+            <p>void loop(){
+            <span class="indent2x"><br>code</span>
+            <span class="indent"><br>}</span></p>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+</html>

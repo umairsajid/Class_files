@@ -5,9 +5,33 @@
 .nav-pills>li.active>a:hover{
 	background-color: #E47128;
 }
-.jumbotron {
+.nav,.jumbotron {
 	margin-top: 50px;
 }
-h1 = {
+.column-heading {	
 	text-align: center;
+}
+a,.column-heading{
+	color: #00878F;
+}
+.panel{
+	margin: 10px;
+}
+.panel-title, .panel-primary>.panel-heading{
+	background-color: #00878F;
+}
+.push{
+	text-indent: 15px;
+}
+.indent{
+	margin: 15px;
+}
+.indent2x{
+	margin: 30px;
+}
+.indent4x{
+	margin: 45px;
+}
+.definition{
+	font-weight: bold;
 }
