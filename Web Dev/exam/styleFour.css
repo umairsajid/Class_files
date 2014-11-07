@@ -1,0 +1,25 @@
+ul li:nth-child(2){
+	border:5px solid;
+	padding: 10px;
+	margin: 1em;
+	border-top-color: red;
+	border-bottom-color: red;
+	border-right-color: blue;
+	border-left-color: blue;
+}
+
+table,td{
+	border-color: yellow;
+	border: 2px solid;
+	border-collapse: collapse;
+}
+td{
+	padding: 1em;
+}
+.scroll{
+	width: 50%;
+	height: 5em;
+	overflow: scroll;
+	align: center;
+	margin-left:  25%;
+}

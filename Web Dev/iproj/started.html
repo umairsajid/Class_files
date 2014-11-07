@@ -18,27 +18,32 @@
     	</ul>
     </div>
     <div class="row">
-      <div class="col-lg-3">  
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">Sketch Structure</h3>
-          </div>
-          <div class="panel-body">
-            <h5>
-              <p>variable initialization</p>
-              <p>void setup(){</p>
-              <p class="push">//Conditions Initialization</p>
-              <p>}</p>
-              <p>void loops(){</p>
-              <p class="push">//Program body that continually loops</p>
-              <p>}</p>
-            </h5>
-          </div>
-        </div>
-      </div>      
+      <img src="img/sketch.png" alt="" class="col-lg-4 sketch img-responsive">      
+      <article class="col-lg-5 col-lg-offset-1">
+        <h1>Sketch Layout</h1>
+        <p>Programs for Arduino are called sketches.  Sketches are broken down into three parts: Variable Initialization, setup, and loop. The first thing that needs to be done is variable initialization.  In this section of the sketch variables are declared, and they are initialized to their beginning values.  In the second phase, setup, the functionality of the pins is cleared.  All the pins that will used will be declared as input or output.  Finally, in the loop phase, the bulk of the program is ran.  As the name suggests, loops continually runs until the arduino is shut off.  After the loop method, helper methods can be written to improve the readability of the loop method.</p>
+      </article>    
+    </div>
+    <div class="row">
+      <img src="img/blink.png" alt="" class="col-lg-4 sketch img-responsive">      
+      <article class="col-lg-5 col-lg-offset-1">
+        <h1>First Sketch - Blink</h1>
+        <p>The Arduino IDE comes with some sketches already preprogramed.  They can be found under file then examples.  The easiest program to demonstrate the functionality of Arduino is the Blink program.  It can be found in the examples under 01. Basics.  Here you can see that there are no variables declared.  However; pin 13 could have been declared in a variable such as int ledPin = 13;  Then where ever 13 is in Blink, it could be replaced by the variable name for readability.  Once the program is uploaded below you should see the small yellow led next to pin 13 blink.  An extra led has been added in the video below for added effect. </p>
+      </article>    
+    </div>
+    <div class="row">
+    <video class ="col-lg-5 sketch" id="blinkmovie" src="img/vid.MOV" controls></video>
+    </div>
+    <div class="row">
+    <audio controls>
+      <source src="img/applause.wav" type="audio/wav">
+    </audio>
+    <p id = "validate">
+      <a href="http://validator.w3.org/check/referer">Validate Me</a>
+    </p>
     </div>
   </div>  
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>  
 </body>
 </html>

@@ -5,7 +5,7 @@
 .nav-pills>li.active>a:hover{
 	background-color: #E47128;
 }
-.nav,.jumbotron {
+.sketch, .nav,.jumbotron {
 	margin-top: 50px;
 }
 .column-heading {	
@@ -32,6 +32,19 @@ a,.column-heading{
 .indent4x{
 	margin: 45px;
 }
+.indent6x{
+	margin: 60px;
+}
+.indent8x{
+	margin: 75px;
+}
+.indent10x{
+	margin: 90px
+}
 .definition{
 	font-weight: bold;
+}
+#validate{
+	margin-top: 100px;
+	text-align: center;
 }

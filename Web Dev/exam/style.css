@@ -1,0 +1,25 @@
+.coloring{
+	color: red;
+	background-color: yellow;
+}
+.blue-coloring{
+	color: blue;
+}
+strong{
+	font-weight: normal;
+	font-style: italic;
+}
+.big{
+	font-size: 20pt;
+}
+#fav{
+	font-family: "Times New Roman";
+}
+
+a:hover{
+	background-color: purple;
+	color: lightgreen;
+}
+a:visited{
+	color:red;
+}
