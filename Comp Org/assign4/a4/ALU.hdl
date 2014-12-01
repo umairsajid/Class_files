@@ -1,0 +1,41 @@
+/**
+ * Larc ALU:
+ *   switch( {nor,sub} ) {
+ *     case {0,0}: out = a + b            (z set if out == 0)
+ *     case {0,1}: out = a - b            (z set if out == 0)
+ *     case {1,0}: out = a NOR b          (z set if out == 0)
+ *     case {1,1}: out = (a < b ? 1 : 0 ) (z is undefined)
+ */
+CHIP ALU {
+
+    IN a[16],b[16],      // the two 16-bit inputs to be operated on
+       sub,              // 1 if subtraction is the requested operation
+       nor;              // 1 if NOR is the requested operation
+                         // note that sub == nor == 1 if SLT is requested
+    OUT out[16],         // 16-bit output of the requested operation
+        z;               // 1 iff out == 0 (zero flag)
+
+    PARTS:    
+    Not(in=sub, out=notOut);
+    And(a=notOut, b=nor, out=andOut);
+    ALU1bit(a=a[0] ,b=b[0], cin=sub ,sub=sub ,nor=andOut ,out=out0 ,cout=cout0);
+    ALU1bit(a=a[1] ,b=b[1], cin=cout0 ,sub=sub ,nor=andOut ,out=out1 ,cout=cout1);
+    ALU1bit(a=a[2] ,b=b[2], cin=cout1 ,sub=sub ,nor=andOut ,out=out2 ,cout=cout2);
+    ALU1bit(a=a[3] ,b=b[3], cin=cout2 ,sub=sub ,nor=andOut ,out=out3 ,cout=cout3);
+    ALU1bit(a=a[4] ,b=b[4], cin=cout3 ,sub=sub ,nor=andOut ,out=out4 ,cout=cout4);
+    ALU1bit(a=a[5] ,b=b[5], cin=cout4 ,sub=sub ,nor=andOut ,out=out5 ,cout=cout5);
+    ALU1bit(a=a[6] ,b=b[6], cin=cout5 ,sub=sub ,nor=andOut ,out=out6 ,cout=cout6);
+    ALU1bit(a=a[7] ,b=b[7], cin=cout6 ,sub=sub ,nor=andOut ,out=out7 ,cout=cout7);
+    ALU1bit(a=a[8] ,b=b[8], cin=cout7 ,sub=sub ,nor=andOut ,out=out8 ,cout=cout8);
+    ALU1bit(a=a[9] ,b=b[9], cin=cout8 ,sub=sub ,nor=andOut ,out=out9 ,cout=cout9);
+    ALU1bit(a=a[10] ,b=b[10], cin=cout9 ,sub=sub ,nor=andOut ,out=out10 ,cout=cout10);
+    ALU1bit(a=a[11] ,b=b[11], cin=cout10 ,sub=sub ,nor=andOut ,out=out11 ,cout=cout11);
+    ALU1bit(a=a[12] ,b=b[12], cin=cout11 ,sub=sub, nor=andOut ,out=out12 ,cout=cout12);
+    ALU1bit(a=a[13] ,b=b[13], cin=cout12 ,sub=sub ,nor=andOut ,out=out13 ,cout=cout13);
+    ALU1bit(a=a[14] ,b=b[14], cin=cout13 ,sub=sub ,nor=andOut ,out=out14 ,cout=cout14);
+    ALU1bit(a=a[15] ,b=b[15], cin=cout14 ,sub=sub ,nor=andOut ,out=out15 ,cout=cout15);
+    Or16Way(a=out0, b=out1, c=out2, d=out3, e=out4, f=out5, g=out6, h=out7, i=out8, j=out9, k=out10, l=out11, m=out12, n=out13, o=out14, p=out15, out=orOut);
+    Not(in=orOut, out=z); 
+    And(a=nor, b=sub, out=andOut1);   
+    Mux16(a[0]=out0, a[1]=out1, a[2]=out2, a[3]=out3, a[4]=out4, a[5]=out5, a[6]=out6, a[7]=out7, a[8]=out8, a[9]=out9, a[10]=out10, a[11]=out11, a[12]=out12, a[13]=out13, a[14]=out14, a[15]=out15, b[0]=out15, b[1]=false, b[2]=false, b[3]=false, b[4]=false, b[5]=false, b[6]=false, b[7]=false, b[8]=false, b[9]=false, b[10]=false, b[11]=false, b[12]=false, b[13]=false, b[14]=false, b[15]=false, sel=andOut1, out=out);       
+}

@@ -1,0 +1,7 @@
+.form-control, .btn-primary{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#p2,.form-control[disabled]{
+	background-color: white;
+}

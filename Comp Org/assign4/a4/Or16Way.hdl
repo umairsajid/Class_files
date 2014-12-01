@@ -1,0 +1,25 @@
+/**
+ * 16-ary Or gate: out = a Or b ... Or p
+ */
+
+CHIP Or16Way {
+    IN a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p;
+    OUT out;
+
+    PARTS:
+    Or(a=a, b=b,  out=tmp1);
+    Or(a=tmp1,  b=c,  out=tmp2);
+    Or(a=tmp2,  b=d,  out=tmp3);
+    Or(a=tmp3,  b=e,  out=tmp4);
+    Or(a=tmp4,  b=f,  out=tmp5);
+    Or(a=tmp5,  b=g,  out=tmp6);
+    Or(a=tmp6,  b=h,  out=tmp7);
+    Or(a=tmp7,  b=i,  out=tmp8);
+    Or(a=tmp8,  b=j,  out=tmp9);
+    Or(a=tmp9,  b=k, out=tmp10);
+    Or(a=tmp10, b=l, out=tmp11);
+    Or(a=tmp11, b=m, out=tmp12);
+    Or(a=tmp12, b=n, out=tmp13);
+    Or(a=tmp13, b=o, out=tmp14);
+    Or(a=tmp14, b=p, out=out);
+}

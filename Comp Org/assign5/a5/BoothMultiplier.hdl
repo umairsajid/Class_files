@@ -1,0 +1,8 @@
+CHIP BoothMultiplier {
+
+    IN   initQ[16], initM[16], reset;
+    OUT  outA[16], outQ[16], done;
+
+    PARTS:
+    // Implementation missing
+}

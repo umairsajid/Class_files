@@ -1,0 +1,46 @@
+/**
+ * Sterling Kohel and Joe Montey
+ * Single-cycle implementation of the Larc ISA
+ */
+
+CHIP Larc {
+
+    PARTS:
+    Not(in=HALT, out=notHALT);
+    PC(in=pcIn, load=notHALT, inc=false, reset=false, out=pcOutA, out[0..11]=pcOutB);
+    Add16(a=pcOutA, b[0]=true, b[1..15]=false, out=pcInc); //needs fixed
+    RAM4K(in=false, load=false, address=pcOutB, out[0..3]=simmRC, out[0..7]=limm1, out[4..7]=RB, out[4..11]=limm2, out[8..11]=simmRA, out[12..15]=instruction, out[7]=limm7, out[11]=limm11, out[3]=simm3);
+
+    CU(opcode=instruction, out[0]=HALT, out[1]=RR1, out[2]=SE, out[3..4]=RFWD, out[5]=RFWRITE, out[6]=ALU, out[7]=JAL, out[8]=BE, out[9]=BN, out[10]=SUB, out[11]=NOR, out[12]=SW, out[13]=LW);
+
+    Mux4(a=false, b=RB, sel=RR1, out=rb);
+
+
+
+
+    Mux4Way16(a[8..15]=limm1, b[0..7]=limm1, b[8]=limm7, b[9]=limm7, b[10]=limm7, b[11]=limm7, b[12]=limm7, b[13]=limm7, b[14]=limm7, b[15]=limm7, c=pcInc, d=dataIn, sel=RFWD, out=wdPre);
+    /*If target register is R0 then write 0 to it */
+    Mux16Way16(a=false, b=wdPre, c=wdPre, d=wdPre, e=wdPre, f=wdPre, g=wdPre, h=wdPre, i=wdPre, j=wdPre, k=wdPre, l=wdPre, m=wdPre, n=wdPre, o=wdPre, p=wdPre, sel=simmRA, out=wd);
+    
+    Mux4(a=simmRA, b=simmRC, sel=SE, out=simmOut);
+
+    Add16(a=pcInc, b[0..7]=limm2, b[8]=limm11, b[9]=limm11, b[10]=limm11, b[11]=limm11, b[12]=limm11, b[13]=limm11, b[14]=limm11, b[15]=limm11, out=pcLink);
+
+    RegisterFile(rr1=rb, rr2=simmRC, wr=simmRA, wd=wd, load=RFWRITE, rd1=rd1, rd2=rd2);
+
+    Mux16(a=rd2, b[0..3]=simmOut, b[4]=simm3, b[5]=simm3, b[6]=simm3, b[7]=simm3, b[8]=simm3, b[9]=simm3, b[10]=simm3, b[11]=simm3, b[12]=simm3, b[13]=simm3, b[14]=simm3, b[15]=simm3, sel=ALU, out=aluB);
+    
+    ALU(a=rd1, b=aluB, sub=SUB, nor=NOR, out=aluOut, out[0..13]=DM, z=z);
+
+    Not(in=z, out=notZ);
+    And(a=BN, b=notZ, out=branchN);
+    And(a=BE, b=z, out=branchE);
+    Or(a=branchN, b=branchE, out=branch);
+
+    Mux16(a=pcInc, b=rd1, sel=JAL, out=jump);
+    Mux16(a=jump, b=pcLink, sel=branch, out=pcIn);
+
+    RAM16K(in=rd2, load=SW, address=DM, out=dataOut);
+
+    Mux16(a=aluOut, b=dataOut, sel=LW, out=dataIn);
+}

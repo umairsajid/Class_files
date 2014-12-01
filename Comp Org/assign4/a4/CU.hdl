@@ -1,0 +1,47 @@
+/**
+ * Sterling Kohel and Joe Montey
+ * Hardwired control unit for the single-cycle implementation 
+ * of the Larc ISA
+ */
+
+CHIP CU {
+
+    IN opcode[4];
+    OUT out[16];
+
+    PARTS:
+    Mux16Way16(
+    /*Addition*/
+    a[0] = false, a[1] = true, a[2] = false, a[3] = true, a[4] = true, a[5] = true, a[6] = false, a[7] = false, a[8] = false, a[9] = false, a[10] = false, a[11] = false, a[12] = false, a[13] = false, a[14] = false, a[15] = false,
+    /*Subtraction*/
+    b[0] = false, b[1] = true, b[2] = false, b[3] = true, b[4] = true, b[5] = true, b[6] = false, b[7] = false, b[8] = false, b[9] = false, b[10] = true, b[11] = false, b[12] = false, b[13] = false, b[14] = false, b[15] = false,
+    /*Multiplication*/
+    c[0] = false, c[1] = true, c[2] = false, c[3] = true, c[4] = true, c[5] = true, c[6] = true, c[7] = true, c[8] = true, c[9] = true, c[10] = true, c[11] = true, c[12] = true, c[13] = true, c[14] = true, c[15] = false,
+    /*Division*/
+    d[0] = false, d[1] = true, d[2] = false, d[3] = true, d[4] = true, d[5] = true, d[6] = true, d[7] = true, d[8] = true, d[9] = true, d[10] = true, d[11] = true, d[12] = true, d[13] = true, d[14] = true, d[15] = false,
+    /*Logical left shift*/
+    e[0] = false, e[1] = true, e[2] = false, e[3] = true, e[4] = true, e[5] = true, e[6] = true, e[7] = true, e[8] = true, e[9] = true, e[10] = true, e[11] = true, e[12] = true, e[13] = true, e[14] = true, e[15] = false,
+    /*Logical right shift*/
+    f[0] = false, f[1] = true, f[2] = false, f[3] = true, f[4] = true, f[5] = true, f[6] = true, f[7] = true, f[8] = true, f[9] = true, f[10] = true, f[11] = true, f[12] = true, f[13] = true, f[14] = true, f[15] = false,
+    /*Bitwise NOR*/
+    g[0] = false, g[1] = true, g[2] = false, g[3] = true, g[4] = true, g[5] = true, g[6] = false, g[7] = false, g[8] = false, g[9] = false, g[10] = false, g[11] = true, g[12] = false, g[13] = false, g[14] = false, g[15] = false,
+    /*Set on less than*/
+    h[0] = false, h[1] = true, h[2] = false, h[3] = true, h[4] = true, h[5] = true, h[6] = false, h[7] = false, h[8] = false, h[9] = false, h[10] = true, h[11] = true, h[12] = false, h[13] = false, h[14] = false, h[15] = false,
+    /*Load immediate*/
+    i[0] = false, i[1] = false, i[2] = false, i[3] = false, i[4] = true, i[5] = true, i[6] = false, i[7] = false, i[8] = false, i[9] = false, i[10] = false, i[11] = false, i[12] = false, i[13] = false, i[14] = false, i[15] = false,
+    /*Load upper immediate*/
+    j[0] = false, j[1] = false, j[2] = false, j[3] = false, j[4] = false, j[5] = true, j[6] = false, j[7] = false, j[8] = false, j[9] = false, j[10] = false, j[11] = false, j[12] = false, j[13] = false, j[14] = false, j[15] = false,
+    /*Branch equal to 0*/
+    k[0] = false, k[1] = false, k[2] = false, k[3] = false, k[4] = false, k[5] = true, k[6] = false, k[7] = false, k[8] = true, k[9] = false, k[10] = false, k[11] = false, k[12] = false, k[13] = false, k[14] = false, k[15] = false,
+    /*Branch not equal to 0*/
+    l[0] = false, l[1] = false, l[2] = false, l[3] = false, l[4] = false, l[5] = true, l[6] = false, l[7] = false, l[8] = false, l[9] = true, l[10] = false, l[11] = false, l[12] = false, l[13] = false, l[14] = false, l[15] = false,
+    /*Memory load*/
+    m[0] = false, m[1] = true, m[2] = true, m[3] = true, m[4] = true, m[5] = true, m[6] = false, m[7] = false, m[8] = false, m[9] = false, m[10] = false, m[11] = false, m[12] = false, m[13] = false, m[14] = false, m[15] = true,
+    /*Memory store*/
+    n[0] = false, n[1] = true, n[2] = false, n[3] = false, n[4] = true, n[5] = true, n[6] = true, n[7] = false, n[8] = false, n[9] = false, n[10] = false, n[11] = false, n[12] = true, n[13] = false, n[14] = false, n[15] = false,
+    /*Jump and link register*/
+    o[0] = false, o[1] = true, o[2] = false, o[3] = false, o[4] = false, o[5] = true, o[6] = false, o[7] = true, o[8] = false, o[9] = false, o[10] = false, o[11] = false, o[12] = false, o[13] = false, o[14] = false, o[15] = false,
+    /*Halt*/
+    p[0] = true, p[1] = false, p[2] = false, p[3] = false, p[4] = false, p[5] = false, p[6] = false, p[7] = false, p[8] = false, p[9] = false, p[10] = false, p[11] = false, p[12] = false, p[13] = false, p[14] = false, p[15] = false, 
+    sel = opcode, out = out);
+}
